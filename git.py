@@ -6,3 +6,5 @@ print("trabajando en dev")
 
 
 print("segundo commit de dev")
+
+print("push sobre la rama principal a github")
