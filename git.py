@@ -9,4 +9,4 @@ print("segundo commit de dev")
 
 print("push sobre la rama principal a github")
 
-print("Cambio hecho en github")
+print("Cambio hecho en github directamente")
