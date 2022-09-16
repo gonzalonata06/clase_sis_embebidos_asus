@@ -14,7 +14,7 @@ void setup() {
 void loop() {
 // put your main code here, to run repeatedly:
 
-int lux = analogRead(LDR), temp = analogRead(L35);
+int lux = analogRead(LDR), temp = (analogRead(L35) * 0.1221); //conversión a grados Celcius
 
 Serial.println(lux);
 delay(1000);
