@@ -16,10 +16,10 @@ void loop() {
 
 int lux = analogRead(LDR), temp = (analogRead(L35) * 0.1221); //conversión a grados Celcius
 
-Serial.println(lux);
-delay(1000);
-//Serial.println(temp);
+//Serial.println(lux);
 //delay(1000);
+Serial.println(temp);
+delay(1000);
 
 if(lux < 300){
   digitalWrite(LED,HIGH);
