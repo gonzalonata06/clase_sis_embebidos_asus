@@ -1,9 +1,22 @@
-#include "FS.h"
-#include "SPIFFS.h"
+/*
+ *  This sketch sends data via HTTP GET requests to data.sparkfun.com service.
+ *
+ *  You need to get streamId and privateKey at data.sparkfun.com and paste them
+ *  below. Or just customize this script to talk to other HTTP servers.
+ *
+ */
 
-/* You only need to format SPIFFS the first time you run a
-   test or else use the SPIFFS plugin to create a partition
-   https://github.com/me-no-dev/arduino-esp32fs-plugin */
+#include <WiFi.h>
+
+/* const char* ssid     = "your-ssid";
+const char* password = "your-password";
+
+const char* host = "data.sparkfun.com";
+const char* streamId   = "....................";
+const char* privateKey = "....................";
+
+ */
+
 #define FORMAT_SPIFFS_IF_FAILED true
 
 void listDir(fs::FS &fs, const char * dirname, uint8_t levels){
@@ -45,11 +58,14 @@ void readFile(fs::FS &fs, const char * path){
         Serial.println("- failed to open file for reading");
         return;
     }
+    
 
     Serial.println("- read from file:");
     while(file.available()){
         Serial.write(file.read());
     }
+
+    
     Serial.println();
     file.close();
 }
@@ -158,8 +174,13 @@ void testFileIO(fs::FS &fs, const char * path){
     }
 }
 
-void setup(){
+
+
+void setup()
+{
     Serial.begin(115200);
+    delay(10);
+
     if(!SPIFFS.begin(FORMAT_SPIFFS_IF_FAILED)){
         Serial.println("SPIFFS Mount Failed");
         return;
@@ -175,10 +196,34 @@ void setup(){
     readFile(SPIFFS, "/foo.txt");
     deleteFile(SPIFFS, "/foo.txt");
     testFileIO(SPIFFS, "/test.txt");
-    deleteFile(SPIFFS, "/test.txt"); */
-    Serial.println( "Test complete" ); 
+    deleteFile(SPIFFS, "/test.txt"); 
+    Serial.println( "Test complete" ); */
+
+    
+
+    // We start by connecting to a WiFi network
+
+    Serial.println();
+    Serial.println();
+    Serial.print("Connecting to ");
+    Serial.println(ssid);
+
+    WiFi.begin(ssid, password);
+
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+    }
+
+    Serial.println("");
+    Serial.println("WiFi connected");
+    Serial.println("IP address: ");
+    Serial.println(WiFi.localIP());
 }
 
-void loop(){
+int value = 0;
 
+void loop()
+{
+   
 }
