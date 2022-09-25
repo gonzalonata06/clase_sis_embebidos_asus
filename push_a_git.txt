@@ -1,0 +1,63 @@
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/gnhc0/OneDrive/Escritorio/clase_sis_embebidos_asus/.git/
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ add arduino
+bash: add: command not found
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ git add arduino
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   arduino/ADC/ADC.ino
+        new file:   arduino/boton_read/boton_read.ino
+
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ git commit -m "agregado boton-led"
+[main 5886b97] agregado boton-led
+ 2 files changed, 33 insertions(+), 3 deletions(-)
+ create mode 100644 arduino/boton_read/boton_read.ino
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ push origin main
+bash: push: command not found
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ gfit push main
+bash: gfit: command not found
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ git push main
+fatal: 'main' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ git push origin
+fatal: unable to access 'https://github.com/gonzalonata06/clase_sis_embebidos_asus.git/': Could not resolve host: github.com
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$ git push origin
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (7/7), 907 bytes | 907.00 KiB/s, done.
+Total 7 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/gonzalonata06/clase_sis_embebidos_asus.git
+   aa2d1e4..5886b97  main -> main
+
+Gonzalo1@DESKTOP-L3TNNL5 MINGW64 ~/OneDrive/Escritorio/clase_sis_embebidos_asus (main)
+$
