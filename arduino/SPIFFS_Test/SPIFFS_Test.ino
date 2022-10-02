@@ -1,5 +1,6 @@
 #include "FS.h"
 #include "SPIFFS.h"
+#include "Stream.h"
 
 /* You only need to format SPIFFS the first time you run a
    test or else use the SPIFFS plugin to create a partition
@@ -165,10 +166,10 @@ void setup(){
         return;
     }
     
-    listDir(SPIFFS, "/", 0); /*
-    writeFile(SPIFFS, "/hello.txt", "Hello ");
-    appendFile(SPIFFS, "/hello.txt", "World!\r\n"); */
-    readFile(SPIFFS, "/ssid.txt");
+    listDir(SPIFFS, "/", 0); 
+   /* writeFile(SPIFFS, "/hello.txt", "Hello ");
+    appendFile(SPIFFS, "/hello.txt", "World!\r\n"); 
+   */ readFile(SPIFFS, "/ssid.txt");
     readFile(SPIFFS, "/pass.txt");  
     /*
     renameFile(SPIFFS, "/hello.txt", "/foo.txt");

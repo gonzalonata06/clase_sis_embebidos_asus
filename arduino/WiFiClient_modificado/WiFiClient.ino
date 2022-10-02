@@ -5,8 +5,10 @@
  *  below. Or just customize this script to talk to other HTTP servers.
  *
  */
-
+#include "FS.h"
+#include "SPIFFS.h"
 #include <WiFi.h>
+#include "Stream.h"
 
 /* const char* ssid     = "your-ssid";
 const char* password = "your-password";
@@ -61,6 +63,8 @@ void readFile(fs::FS &fs, const char * path){
     
 
     Serial.println("- read from file:");
+
+
     while(file.available()){
         Serial.write(file.read());
     }
@@ -68,6 +72,7 @@ void readFile(fs::FS &fs, const char * path){
     
     Serial.println();
     file.close();
+  
 }
 
 void writeFile(fs::FS &fs, const char * path, const char * message){
@@ -189,8 +194,66 @@ void setup()
     listDir(SPIFFS, "/", 0); /*
     writeFile(SPIFFS, "/hello.txt", "Hello ");
     appendFile(SPIFFS, "/hello.txt", "World!\r\n"); */
-    readFile(SPIFFS, "/ssid.txt");
-    readFile(SPIFFS, "/pass.txt");  
+
+    String s_ssid;
+    File file_ssid = SPIFFS.open("/ssid.txt", "r");
+    if(!file_ssid || file_ssid.isDirectory()){
+        Serial.println("- failed to open file for reading");
+       
+    }
+    else{
+
+
+    while(file_ssid.available()){
+      s_ssid = file_ssid.readString() ;
+      
+    }
+
+    file_ssid.close();
+    }
+  
+
+    String s_pass;
+    File file_pass = SPIFFS.open("/pass.txt", "r");
+    if(!file_pass || file_pass.isDirectory()){
+        Serial.println("- failed to open file for reading");
+       
+    }
+    else{
+
+
+    while(file_pass.available()){
+        s_pass = file_pass.readString();
+    }
+
+    file_pass.close();
+    }
+  
+int n = s_ssid.length();
+ 
+    // declaring character array
+    char ssid[n + 1];
+ 
+    // copying the contents of the
+    // string to char array
+    strcpy(ssid, s_ssid.c_str());
+ 
+
+  int n_1 = s_pass.length();
+ 
+    // declaring character array
+    char pass[n_1 + 1];
+ 
+    // copying the contents of the
+    // string to char array
+    strcpy(pass, s_pass.c_str());
+ 
+  
+
+        
+ // char ssid[]= {s_ssid};
+ // char pass[] = {s_pass};
+ 
     /*
     renameFile(SPIFFS, "/hello.txt", "/foo.txt");
     readFile(SPIFFS, "/foo.txt");
@@ -206,9 +269,9 @@ void setup()
     Serial.println();
     Serial.println();
     Serial.print("Connecting to ");
-    Serial.println(ssid);
+    //Serial.println(ssid);
 
-    WiFi.begin(ssid, password);
+    WiFi.begin(ssid, pass);
 
     while (WiFi.status() != WL_CONNECTED) {
         delay(500);
@@ -219,9 +282,11 @@ void setup()
     Serial.println("WiFi connected");
     Serial.println("IP address: ");
     Serial.println(WiFi.localIP());
-}
+
 
 int value = 0;
+
+}
 
 void loop()
 {

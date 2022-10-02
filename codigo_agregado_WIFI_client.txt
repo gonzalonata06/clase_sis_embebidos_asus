@@ -1,0 +1,60 @@
+La idea es en lugar de imprimir los carácteres del archivo en el serial, guardarlos en un string con la función readString(), posteriormente 
+a partir de este string hay que crear dos arreglos de chars que son los que acepta como argumento la funcion wifi.begin().
+
+
+
+
+  String s_ssid;
+    File file_ssid = SPIFFS.open("/ssid.txt", "r");
+    if(!file_ssid || file_ssid.isDirectory()){
+        Serial.println("- failed to open file for reading");
+       
+    }
+    else{
+
+
+    while(file_ssid.available()){
+      s_ssid = file_ssid.readString() ;
+      
+    }
+
+    file_ssid.close();
+    }
+  
+
+    String s_pass;
+    File file_pass = SPIFFS.open("/pass.txt", "r");
+    if(!file_pass || file_pass.isDirectory()){
+        Serial.println("- failed to open file for reading");
+       
+    }
+    else{
+
+
+    while(file_pass.available()){
+        s_pass = file_pass.readString();
+    }
+
+    file_pass.close();
+    }
+  
+int n = s_ssid.length();
+ 
+    // declaring character array
+    char ssid[n + 1];
+ 
+    // copying the contents of the
+    // string to char array
+    strcpy(ssid, s_ssid.c_str());
+ 
+
+  int n_1 = s_pass.length();
+ 
+    // declaring character array
+    char pass[n_1 + 1];
+ 
+    // copying the contents of the
+    // string to char array
+    strcpy(pass, s_pass.c_str());
+ 
+  
