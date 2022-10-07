@@ -169,14 +169,15 @@ void setup(){
     listDir(SPIFFS, "/", 0); 
    /* writeFile(SPIFFS, "/hello.txt", "Hello ");
     appendFile(SPIFFS, "/hello.txt", "World!\r\n"); 
-   */ readFile(SPIFFS, "/ssid.txt");
+    readFile(SPIFFS, "/ssid.txt");
     readFile(SPIFFS, "/pass.txt");  
-    /*
+    
     renameFile(SPIFFS, "/hello.txt", "/foo.txt");
     readFile(SPIFFS, "/foo.txt");
     deleteFile(SPIFFS, "/foo.txt");
     testFileIO(SPIFFS, "/test.txt");
     deleteFile(SPIFFS, "/test.txt"); */
+    readFile(SPIFFS, "/json_test.txt");
     Serial.println( "Test complete" ); 
 }
 
