@@ -1,4 +1,4 @@
-arduino/SPIFFS_Test/data/*
-arduino/WiFiClient_modificado/data/*
-arduino/AWS_MQTT/data/*
-prueba_gitignore/*
+arduino/SPIFFS_Test/data/*.txt
+arduino/WiFiClient_modificado/data/*.txt
+arduino/AWS_MQTT/data/*.crt
+prueba_gitignore/*.txt
