@@ -1,0 +1,3 @@
+arduino\AWS_MQTT\data\*.crt
+arduino\SPIFFS_Test\data\*.txt
+arduino\WiFiClient_modificado\data*.txt
