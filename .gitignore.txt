@@ -1,3 +1,4 @@
 arduino/SPIFFS_Test/data/*
 arduino/WiFiClient_modificado/data/*
 arduino/AWS_MQTT/data/*
+prueba_gitignore/*
