@@ -1,4 +1,6 @@
-arduino/SPIFFS_Test/data/*.txt
-arduino/WiFiClient_modificado/data/*.txt
-arduino/AWS_MQTT/data/*.crt
-prueba_gitignore/*.txt
+#arduino/SPIFFS_Test/data/*
+#arduino/WiFiClient_modificado/data/*
+#arduino/AWS_MQTT/data/*
+prueba_gitignore/*
+#https://learntutorials.net/es/git/topic/245/ignorando-archivos-y-carpetas
+data
