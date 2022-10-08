@@ -11,7 +11,6 @@
 #include <PubSubClient.h>
 #include <Adafruit_BMP280.h>
 #include <ArduinoJson.h>
-
 #include <Credentials.h>
 
 //Credenciales de red Wifi
@@ -35,8 +34,8 @@ char payload[BUFFER_LEN]; //Datos a enviar por MQTT
 byte mac[6];
 char mac_Id[18];
 
-#define JSON_BUFFER_INCOMING_LEN 120
-#define JSON_BUFFER_OUTGOING_LEN 120
+#define JSON_BUFFER_INCOMING_LEN 200
+#define JSON_BUFFER_OUTGOING_LEN 200
 StaticJsonDocument<JSON_BUFFER_INCOMING_LEN> payload_in;
 StaticJsonDocument<JSON_BUFFER_OUTGOING_LEN> payload_out;
 //********************************
@@ -137,7 +136,7 @@ void setup() {
     
   //*****************************
   // Cert leer archivo
-  File file4 = SPIFFS.open("/692c-certificate.pem.crt", FILE_READ);
+  File file4 = SPIFFS.open("/eca5-certificate.pem.crt", FILE_READ);
   if (!file4) {
     Serial.println("No se pudo abrir el archivo para leerlo");
     return;
@@ -149,7 +148,7 @@ void setup() {
     
   //***************************************
   //Privatekey leer archivo
-  File file6 = SPIFFS.open("/692c-private.pem.key", FILE_READ);
+  File file6 = SPIFFS.open("/eca5-private.pem.key", FILE_READ);
   if (!file6) {
     Serial.println("No se pudo abrir el archivo para leerlo");
     return;
