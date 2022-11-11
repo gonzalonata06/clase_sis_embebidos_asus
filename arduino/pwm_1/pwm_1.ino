@@ -1,5 +1,5 @@
 
-const int PWM_PIN_LED = 12;
+const int PWM_PIN_LED = 32;
 const int BUTTON_PIN = 25;
 
 const int PWM_CHANNEL = 0;
